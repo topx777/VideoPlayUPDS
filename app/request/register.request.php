@@ -10,8 +10,10 @@ if(isset($_POST["nombre"]))
     {
         if($password == $respassword)
         {
+            require_once('../helpers/class.Conexion.php');
+
             $db = new Conexion();
-            $sqlVerificar = $db->query("SELECT * FROM usuario WHERE nombreUsuario = $nombre OR email = $correo");
+            $sqlVerificar = $db->query("SELECT * FROM usuario WHERE nombreUsuario = '$nombre' OR email = '$correo'");
             if($db->rows($sqlVerificar) == 0)
             {
                 $sqlIngresar = $db->query("INSERT INTO usuario(nombreUsuario, email, password) VALUES('$nombre', '$correo', '$password')");
