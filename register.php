@@ -82,6 +82,8 @@ if(isset($_SESSION['user']))
         </div>
       </div>
       <!--======= // log_in_page =======-->
+      <script src=""></script>      
+      
 	</body>
 
 
