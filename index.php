@@ -1,7 +1,9 @@
 <?php
 require_once('core/app/config/init.config.php');
 
-$db = new Conexion();
+if(!isset($_SESSION['user']))
+{
+    header('Location: login.php');
+}
 ?>
-
-<h2><?php echo NOMBRE_APP ?></h2>
+<h1>Inicio</h1>
