@@ -2,7 +2,7 @@
 class Conexion extends MySqli
 {
     public function __construct() {
-		parent::__construct('localhost','root','','tiendak');
+		parent::__construct('localhost','root','','mydb');
 		//Conexion a base de Datos WEB;
 		//parent::__construct('localhost','varczoen_tiendas','slr8830213','varczoen_tiendasr');
 		$this->connect_errno ? die('ERROR: Conexion a la base de datos fallida') : null; 
