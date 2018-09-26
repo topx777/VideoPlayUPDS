@@ -1,5 +1,5 @@
 <?php
-require_once('core/app/config/init.config.php');
+require_once('app/config/init.config.php');
 
 if(isset($_SESSION['user']))
 {
@@ -82,8 +82,15 @@ if(isset($_SESSION['user']))
         </div>
       </div>
       <!--======= // log_in_page =======-->
-      <script src=""></script>      
-      
+      <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>    
+    
+      <script>
+          
+          $(document).on('ready', function() {
+              alert('Registro');
+          });
+    
+      </script>
 	</body>
 
 

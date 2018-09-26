@@ -1,5 +1,5 @@
 <?php
-require_once('core/app/config/init.config.php');
+require_once('app/config/init.config.php');
 
 if(isset($_SESSION['user']))
 {
