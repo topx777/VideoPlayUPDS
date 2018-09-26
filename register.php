@@ -1,5 +1,4 @@
 <?php
-session_start();
 require('app/config/init.config.php');
 
 if(isset($_SESSION['user']))
@@ -96,6 +95,9 @@ if(isset($_SESSION['user']))
 					if(response == 1)
 					{
 						$('#AJAXresponse').html('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Registrado con Exito, Ingresando...</strong></div>');
+						setTimeout(() => {
+                            window.location.href = 'index.php';
+                        }, 1500);
 					}
 					else
 					{

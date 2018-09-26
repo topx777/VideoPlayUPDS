@@ -1,5 +1,5 @@
 <?php
-require_once('app/config/init.config.php');
+require('app/config/init.config.php');
 
 if(isset($_SESSION['user']))
 {
@@ -45,24 +45,59 @@ if(isset($_SESSION['user']))
         </div>
         
         <div class="form-output">
-        	<form>
+        	<div>
 				<div class="form-group label-floating">
 					<label class="control-label">Tu Correo</label>
-					<input class="form-control" placeholder="Correo" type="email">
+					<input class="form-control" id="correo" placeholder="Correo" type="email">
 				</div>
 				<div class="form-group label-floating">
 					<label class="control-label">Tu Contraseña</label>
-					<input class="form-control" placeholder="Contraseña" type="password">
+					<input class="form-control" id="password" placeholder="Contraseña" type="password">
 				</div>
         
                 
                 <button id="login" class="btn btn-lg btn-primary full-width">Iniciar Sesion</button>
                 
 				<p>No tienes una cuenta? <a href="register.php">Registrate ahora!</a> </p>
-            </form>
+            </div>
         </div>
       </div>
       <!--======= // log_in_page =======-->
+      <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>    
+    
+      <script>
+		$(document).on('click', '#login', function(){
+			var correo = $('#correo').val();
+			var password = $('#password').val();
+			
+			$.ajax({
+				type: 'POST',
+				url: 'app/request/login.request.php',
+				data: {
+					correo: correo,
+					password: password,
+				},
+				cache: false,
+				success: function (response) {
+					if(response == 1)
+					{
+						$('#AJAXresponse').html('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Logeado con Exito, Ingresando...</strong></div>');
+                        setTimeout(() => {
+                            window.location.href = 'index.php';
+                        }, 1500);
+					}
+					else
+					{
+						$('#AJAXresponse').html('<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>ERROR! ' + response + '</strong></div>');
+					}
+				},
+				error: function (err) {
+					console.log(err);
+				}
+			});																																								
+        });
+    
+      </script>
 	</body>
 
 

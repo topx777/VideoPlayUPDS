@@ -1,5 +1,5 @@
 <?php
-require_once('app/config/init.config.php');
+require('app/config/init.config.php');
 
 if(!isset($_SESSION['user']))
 {
@@ -7,3 +7,4 @@ if(!isset($_SESSION['user']))
 }
 ?>
 <h1>Inicio</h1>
+<p>Bienvenido</p> <?=$_SESSION['user']['nombre']?>
