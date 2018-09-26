@@ -45,34 +45,24 @@ if(isset($_SESSION['user']))
         </div>
 
         <div class="form-output">
-            <?php
-            if(isset($_SESSION['errorauth']))
-            {
-            ?>
-            <div class="alert alert-danger alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>ERROR!</strong> <?=$_SESSION['errorauth']?>.
-            </div>
-            <?php
-            }
-            ?>
+            <div id="AJAXresponse"></div>
             <div>
                 <div class="form-group label-floating">
 					<label class="control-label">Tu Nombre</label>
-					<input class="form-control" name="nombre" placeholder="Nombre" type="text">
+					<input class="form-control" id="nombre" placeholder="Nombre" type="text">
 				</div>
 				<div class="form-group label-floating">
 					<label class="control-label">Tu Correo</label>
-					<input class="form-control" name="correo" placeholder="Correo" type="email">
+					<input class="form-control" id="correo" placeholder="Correo" type="email">
 				</div>
 				<div class="form-group label-floating">
 					<label class="control-label">Tu Contraseña</label>
-					<input class="form-control" id="passs" name="password" placeholder="Contraseña" type="password">
+					<input class="form-control" id="password" placeholder="Contraseña" type="password">
 				</div>
                 
 				<div class="form-group label-floating">
 					<label class="control-label">Repite Tu Contraseña</label>
-					<input class="form-control" name="respassword" placeholder="Repite Contraseña" type="password">
+					<input class="form-control" id="respassword" placeholder="Repite Contraseña" type="password">
 				</div>
                 
 	    		<button id="registro" class="btn btn-lg btn-primary full-width">Completar Registro!</button>
@@ -85,9 +75,37 @@ if(isset($_SESSION['user']))
       <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>    
     
       <script>
-          $(document).on('click', '#registro', function(){
-              alert('registro');
-          });
+		$(document).on('click', '#registro', function(){
+			var nombre = $('#nombre').val();
+			var correo = $('#correo').val();
+			var password = $('#password').val();
+			var respassword = $('#respassword').val();
+			
+			$.ajax({
+				type: 'POST',
+				url: 'app/request/register.request.php',
+				data: {
+					nombre: nombre,
+					correo: correo,
+					password: password,
+					respassword: respassword
+				},
+				cache: false,
+				success: function (response) {
+					if(response == 1)
+					{
+						$('#AJAXresponse').html('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Registrado con Exito, Ingresando...</strong></div>');
+					}
+					else
+					{
+						$('#AJAXresponse').html('<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>ERROR! ' + response + '</strong></div>');
+					}
+				},
+				error: function (err) {
+					console.log(err);
+				}
+			});																																								
+        });
     
       </script>
 	</body>
