@@ -56,7 +56,7 @@ if(isset($_SESSION['user']))
             <?php
             }
             ?>
-            <form method="POST" action="core/app/request/auth/request.register.php">
+            <div>
                 <div class="form-group label-floating">
 					<label class="control-label">Tu Nombre</label>
 					<input class="form-control" name="nombre" placeholder="Nombre" type="text">
@@ -67,7 +67,7 @@ if(isset($_SESSION['user']))
 				</div>
 				<div class="form-group label-floating">
 					<label class="control-label">Tu Contraseña</label>
-					<input class="form-control" name="password" placeholder="Contraseña" type="password">
+					<input class="form-control" id="passs" name="password" placeholder="Contraseña" type="password">
 				</div>
                 
 				<div class="form-group label-floating">
@@ -75,19 +75,18 @@ if(isset($_SESSION['user']))
 					<input class="form-control" name="respassword" placeholder="Repite Contraseña" type="password">
 				</div>
                 
-	    		<input type="submit" name="registro" class="btn btn-lg btn-primary full-width" value="Completar Registro!">
+	    		<button id="registro" class="btn btn-lg btn-primary full-width">Completar Registro!</button>
 
                 <p>Ya tienes una cuenta? <a href="login.php"> Inicia Sesion!</a> </p>
-            </form>
+            </div>
         </div>
       </div>
       <!--======= // log_in_page =======-->
       <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>    
     
       <script>
-          
-          $(document).on('ready', function() {
-              alert('Registro');
+          $(document).on('click', '#registro', function(){
+              alert('registro');
           });
     
       </script>
