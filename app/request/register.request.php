@@ -22,7 +22,8 @@ if(isset($_POST["nombre"]))
                 {
                     $_SESSION['user'] = array(
                         'id' => $db->ultimaId(),
-                        'nombre' => $nombre
+                        'nombre' => $nombre,
+                        'subs' => '0'
                     );
                     echo 1;
                 }

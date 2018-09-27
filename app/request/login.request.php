@@ -16,7 +16,8 @@ if(isset($_POST["correo"]))
             $usuario = $db->recorrer($sqlVerificar);
             $_SESSION['user'] = array(
                 'id' => $usuario['idUsuario'],
-                'nombre' => $usuario['nombreUsuario']
+                'nombre' => $usuario['nombreUsuario'],
+                'subs' => $usuario['cantSuscriptores']
             );
             echo 1;
         }
