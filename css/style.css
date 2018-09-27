@@ -1240,9 +1240,51 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	position: relative;
 	z-index: 5;
 }
+
+.chanel-item button.subscribe{
+	font-family: 'Roboto', sans-serif;
+	background-color: #becccc;
+	height: 35px;
+	width: 105px;
+	text-align: center;
+	display: block;
+	float: right;
+	font-size: 15px;
+	font-weight: 700;
+	color: #FFF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-top: 25px;
+	position: relative;
+	z-index: 5;
+}
+
+.chanel-item button.subscribed{
+	font-family: 'Roboto', sans-serif;
+	background-color: #ff5e3a;
+	height: 35px;
+	width: 105px;
+	text-align: center;
+	display: block;
+	float: right;
+	font-size: 15px;
+	font-weight: 700;
+	color: #FFF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-top: 25px;
+	position: relative;
+	z-index: 5;
+}
+
 .chanel-item a.subscribe:hover{
-	background-color:ff5e3a ;
-	}
+	background-color:#ff5e3a;
+}
+.chanel-item button.subscribe:hover{
+background-color:#ff5e3a;
+}
 .chanel-item:after{
 	content:" ";
 	display: block;
@@ -1537,7 +1579,34 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	-moz-border-radius: 3px;
 	border-radius: 3px;	
 }
+
+#watch ul.social_link li button{
+	color: #a7a7a7;
+	text-align: center;
+	display: block;
+	height: 30px;
+	width: 30px;
+	border: 1px solid #D2D2D2;
+	padding-top: 4px;
+	font-size: 14px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;	
+}
+
+#watch ul.social_link li button.favorito{
+	background-color: #fab318;
+	border: 1px solid #FAAC0C;
+	color: #FFF;
+}
+
 #watch ul.social_link li a:hover{
+	background-color: #fab318;
+	border: 1px solid #FAAC0C;
+	color: #FFF;
+}
+
+#watch ul.social_link li button:hover{
 	background-color: #fab318;
 	border: 1px solid #FAAC0C;
 	color: #FFF;
@@ -2141,7 +2210,7 @@ font-style: italic;
 }
 #blog .video-post .header a {
     position: absolute;
-    color:
+    color:#223f84;
 }
 #blog .video-post .header a i {
     font-size: 60px;

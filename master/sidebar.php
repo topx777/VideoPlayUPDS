@@ -11,7 +11,7 @@
         <ul class="menu-sidebar">
             <li><a href="#"><i class="fa fa-upload"></i>Subir Video</a></li>
             <li><a href="#"><i class="fa fa-edit"></i>editar perfil</a></li>
-            <li><a href="#"><i class="fa fa-sign-out"></i>cerrar sesion</a></li>
+            <li><a href="app/request/logout.request.php"><i class="fa fa-sign-out"></i>cerrar sesion</a></li>
         </ul>
         </div><!-- // sidebar-stick -->
         <div class="clear"></div>
